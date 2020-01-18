@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-world-ingress
+  namespace: ingress-basic
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  tls:
+  - hosts:
+<<<<<<< Updated upstream
+    - sufian.eastus.cloudapp.azure.com
+    secretName: sufian-eastus-cloudapp-azure-com-staging
+  rules:
+  - host: sufian.eastus.cloudapp.azure.com
+=======
+    - mustafiz.eastus.cloudapp.azure.com
+    secretName: mustafiz-eastus-cloudapp-azure-com-staging
+  rules:
+  - host: mustafiz.eastus.cloudapp.azure.com
+>>>>>>> Stashed changes
+    http:
+      paths:
+      - backend:
+          serviceName: aks-helloworld
+          servicePort: 80
+        path: /(.*)
+      - backend:
+          serviceName: ingress-demo
+          servicePort: 80
+        path: /hello-world-two(/|$)(.*)

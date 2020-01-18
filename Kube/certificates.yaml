@@ -1,0 +1,30 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  namespace: ingress-basic
+<<<<<<< Updated upstream
+  name: sufian-eastus-cloudapp-azure-com-cert-staging
+spec:
+  secretName: sufian-eastus-cloudapp-azure-com-staging
+  dnsNames:
+  - sufian.eastus.cloudapp.azure.com
+=======
+  name: mustafiz-eastus-cloudapp-azure-com-cert-staging
+spec:
+  secretName: mustafiz-eastus-cloudapp-azure-com-staging
+  dnsNames:
+  - mustafiz.eastus.cloudapp.azure.com
+>>>>>>> Stashed changes
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+<<<<<<< Updated upstream
+      - sufian.eastus.cloudapp.azure.com
+=======
+      - mustafiz.eastus.cloudapp.azure.com
+>>>>>>> Stashed changes
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer  
